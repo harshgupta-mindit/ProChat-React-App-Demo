@@ -1,4 +1,4 @@
-.login-main{
+.signup-main{
     width: 100%;
     height: 88vh;
 
@@ -6,31 +6,29 @@
     justify-content: center;
     align-items: center;
 }
-.login-body{
-    display: flex;
-    flex-direction: column;
-}
-.login-h1{
+.signup-h1{
     color: #D80032;
 }
-.login-form{
+.signup-form{
     display: flex;
     flex-direction: column;
 }
-.login-email-input, .login-password-input{
+.signup-input{
+    border: none;
+    border-bottom: 1px solid #D80032;
     padding: 10px 20px;
     font-size: 20px;
-    border: none;
-    border-bottom: 2px solid #D80032;
     outline: none;
     margin-top: 20px;
     background-color: #feedf1;
 }
-.login-submit-btn{
-    padding: 10px 20px;
+
+.signup-submit-btn{
     border: none;
-    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
     background-color: #D80032;
     color: #fff;
+    margin-top: 20px;
     border-radius: 10px;
 }

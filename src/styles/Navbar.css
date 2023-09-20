@@ -1,7 +1,6 @@
 .nav{
     background-color: #D80032;
     color: #fff;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,9 +11,6 @@
     display: flex;
     justify-content: space-evenly;
     list-style-type: none;
-    /* align-items: center; */
-
-    /* border: 1px solid yellow; */
 }
 .nav-h1{
     font-size: 30px;
@@ -29,6 +25,15 @@
     border-radius: 10px;
     margin-left: 20px;
     cursor: pointer;
+}
+.nav-logged{
+    padding: 10px 20px;
+    border: 1px double #fff;
+    color: #D80032;
+    border-radius: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+    background-color: #fff;
 }
 .nav-li:hover{
     background-color: #fff;

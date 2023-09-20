@@ -36,7 +36,7 @@ const Login = () => {
               <button className='login-submit-btn' type="Submit">Log In</button>
             </Form>
           </Formik>
-          <p style={{ textAlign: 'center', marginTop: "30px" }}>Don't have an account ? <Link to='/register' style={{ color: '#D80032' }} >Sign Up</Link></p>
+          <p style={{ textAlign: 'center', marginTop: "30px" }}>Don't have an account ? <Link to='/signup' style={{ color: '#D80032' }} >Sign Up</Link></p>
 
         </div>
       </div>

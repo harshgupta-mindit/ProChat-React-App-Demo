@@ -1,8 +1,54 @@
-import React from 'react'
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import React from 'react';
+import "./SignUp.css";
+import { Link } from 'react-router-dom';
+import * as Yup from "yup";
 
 const SignUp = () => {
   return (
-    <div>SignUp</div>
+    <>
+      <div className="signup-main">
+        <div className="signup-body">
+          <h1 className="signup-h1">Sign Up</h1>
+
+          <Formik
+            initialValues={{
+              name: "",
+              email: "",
+              password: "",
+              confirmPassword: ""
+            }}
+
+            validationSchema={Yup.object({
+              name: Yup.string().min(3, "Name must be greater than 3 Characters").required("Name is required"),
+              email: Yup.string().email().required("Email is required"),
+              password: Yup.string().min(8, "Password Should be greater than 8 character").required("Password is required"),
+              confirmPassword: Yup.string().oneOf([Yup.ref("password"), null], "Password not matched !!!").required("Confirm Password is required")
+            })}
+
+            onSubmit={async (values)=> {
+              console.log(values)
+            }}
+
+          >
+            <Form className='signup-form'>
+              <Field className="signup-input" type="text" name="name" placeholder="Enter Name" />
+              <ErrorMessage style={{color:"#D80032"}} component="label" name="name"/>
+              <Field className="signup-input" type="text" name="email" placeholder="Enter Email" />
+              <ErrorMessage style={{color:"#D80032"}} component="label" name="email"/>
+              <Field className="signup-input" type="text" name="password" placeholder="Enter password" />
+              <ErrorMessage style={{color:"#D80032"}} component="label" name="password"/>
+              <Field className="signup-input" type="text" name="confirmPassword" placeholder="Confirm Password" />
+              <ErrorMessage style={{color:"#D80032"}} component="label" name="confirmPassword"/>
+
+              <button className='signup-submit-btn'>Sign Up</button>
+            </Form>
+          </Formik>
+
+          <p style={{textAlign:'center', marginTop:"30px"}}>Already have an account ? <Link to='/login' style={{textDecoration:'none', color:"#D80032"}}>Login</Link></p>
+        </div>
+      </div>
+    </>
   )
 }
 
