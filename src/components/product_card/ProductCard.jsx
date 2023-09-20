@@ -14,8 +14,8 @@ const ProductCard = ({productBrand, productImage, productPrice, productModel }) 
                     <p>{productPrice}</p>
                 </div>
 
-                {/* <button className='card-add-btn'>Add to Cart</button> */}
-                <button className='card-remove-btn'>Remove from Cart</button>
+                <button className='card-add-btn'>Add to Cart</button>
+                {/* <button className='card-remove-btn'>Remove from Cart</button> */}
             </div>
         </div>
     </>

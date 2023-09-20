@@ -1,0 +1,32 @@
+.login-main{
+    width: 100%;
+    height: 88vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-body{
+    display: flex;
+    flex-direction: column;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+.login-email-input, .login-password-input{
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-bottom: 2px solid #D80032;
+    outline: none;
+    margin-top: 20px;
+}
+.login-submit-btn{
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+    background-color: #D80032;
+    color: #fff;
+    border-radius: 10px;
+}
