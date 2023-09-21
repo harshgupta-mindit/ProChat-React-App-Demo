@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React, { useState } from 'react';
+import React from 'react';
 import "./SignUp.css";
 import { Link } from 'react-router-dom';
 import * as Yup from "yup";
