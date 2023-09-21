@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import "./Login.css"
 import { useNavigate ,Link } from 'react-router-dom';
@@ -6,11 +6,13 @@ import { useNavigate ,Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import * as Yup from "yup";
 import axios from 'axios';
+import * as Yup from "yup";
+
 
 const Login = () => {
 
+ 
   const navigate = useNavigate();
 
   const loginUserFunc = async (values) => {
@@ -20,6 +22,10 @@ const Login = () => {
       }
     })
       .then((data) => {
+
+       console.log("loginUserFunc then ---->>>", data);
+       localStorage.setItem("auth-token", data.data.accessToken);
+
         toast.success('Login Success 👍, Redirecting to Login...', {
           position: "top-right",
           autoClose: 3000,
@@ -33,7 +39,7 @@ const Login = () => {
         console.log("logged in by database : ", data)
         setTimeout(() => {
           navigate('/products')
-        }, 4000);
+        }, 4000);        
       })
       .catch((err) => {
         console.log("An error occured : ", err)

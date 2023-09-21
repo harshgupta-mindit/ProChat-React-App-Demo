@@ -9,19 +9,12 @@ import Products from './pages/products/Products';
 
 import Home from './pages/home/Home';
 import SingleProduct from './pages/singleProduct/SingleProduct';
-import { useState } from 'react';
-
-import { createContext } from 'react';
 
 function App() {
-
-  const [userInfo, setUserInfo] = useState({});
-
-  const loginContext = createContext();
-
+  
   return (
     <div className="App">
-      <loginContext.Provider value={{userInfo, setUserInfo}}>
+     
         <NavbarMenu />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -32,7 +25,6 @@ function App() {
 
           <Route path='*' element={<Error />} />
         </Routes>
-      </loginContext.Provider>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./SingleProduct.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { DATA } from "../../Data";
 
@@ -27,9 +27,9 @@ const SingleProduct = () => {
                             {
                                 productData.images.length > 0 && productData.images.map((imageURL, key) => {
                                     return (
-                                        productImageCarouselCount == key ? 
-                                        <img onClick={() => changeCarouselImage(key)} src={imageURL} alt="product_image" className="singleProduct-img-thumbnail" />
-                                        : <img style={{opacity:'.5'}} onClick={() => changeCarouselImage(key)} src={imageURL} alt="product_image" className="singleProduct-img-thumbnail" />
+                                        productImageCarouselCount === key ?
+                                            <img onClick={() => changeCarouselImage(key)} src={imageURL} alt="product_image" className="singleProduct-img-thumbnail" />
+                                            : <img style={{ opacity: '.5' }} onClick={() => changeCarouselImage(key)} src={imageURL} alt="product_image" className="singleProduct-img-thumbnail" />
                                     )
                                 })
                             }
@@ -50,13 +50,15 @@ const SingleProduct = () => {
                     <h1 className='otherProduct-heading'>You may also like </h1>
                     <div className="otherProductList-body">
                         {
-                            DATA.PRODUCT_DATA.length > 0 && DATA.PRODUCT_DATA.map((data) => {
+                            DATA.PRODUCT_DATA.length > 0 && DATA.PRODUCT_DATA.map((data, key) => {
                                 return (
-                                    <div className="product-detail">
-                                        <img className='otherProduct-img' src={data.thumbnail} alt="" />
-                                        <p className='otherProduct-title'>{data.title}</p>
-                                        <p className='otherProduct-price'>Rs.{data.price}</p>
-                                    </div>
+                                    <Link to={`/products/${key}`} style={{textDecoration:"none", color:'#000'}}>
+                                        <div className="product-detail">
+                                            <img className='otherProduct-img' src={data.thumbnail} alt="" />
+                                            <p className='otherProduct-title'>{data.title}</p>
+                                            <p className='otherProduct-price'>Rs.{data.price}</p>
+                                        </div>
+                                    </Link>
                                 )
                             })
                         }
