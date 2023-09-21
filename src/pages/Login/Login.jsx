@@ -1,59 +1,59 @@
-import React, { useContext } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import React from 'react';
 import "./Login.css"
-import { useNavigate ,Link } from 'react-router-dom';
+
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from "yup";
+
+import { useNavigate, Link } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import axios from 'axios';
-import * as Yup from "yup";
-
+import { loginStatus } from '../../functions/authStatus';
+import { setInLocal } from '../../functions/localStorage';
 
 const Login = () => {
 
- 
   const navigate = useNavigate();
 
   const loginUserFunc = async (values) => {
-    await axios.get("http://localhost:8000/login", {
-      params : {
-        ...values
-      }
-    })
-      .then((data) => {
 
-       console.log("loginUserFunc then ---->>>", data);
-       localStorage.setItem("auth-token", data.data.accessToken);
+    const result = await loginStatus(values.email, values.password);
 
-        toast.success('Login Success 👍, Redirecting to Login...', {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        console.log("logged in by database : ", data)
-        setTimeout(() => {
-          navigate('/products')
-        }, 4000);        
-      })
-      .catch((err) => {
-        console.log("An error occured : ", err)
-        toast.error('An Error occured 🤷‍♀️', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-      })
+    if(result.message === "success") {  
+      setInLocal("auth-token", result.data.data.accessToken);
+      toast.success('Login Success 👍, Redirecting to Login...', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      console.log("logged in by database : ", result)
+      setTimeout(() => {
+        navigate('/products')
+      }, 4000);
+
+    }
+    else{
+      console.log("An error occured : ", result.err)
+      toast.error('An Error occured 🤷‍♀️', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
+
+
+
   }
 
 

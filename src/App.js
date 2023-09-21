@@ -10,11 +10,19 @@ import Products from './pages/products/Products';
 import Home from './pages/home/Home';
 import SingleProduct from './pages/singleProduct/SingleProduct';
 
+import { createContext, useState } from 'react';
+
+export const LoginContext = createContext();
+
 function App() {
-  
+
+
+  const [loginStatus, setLoginStatus] = useState(false);
+
   return (
     <div className="App">
-     
+      <LoginContext.Provider value={{loginStatus, setLoginStatus}}>
+
         <NavbarMenu />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -25,6 +33,7 @@ function App() {
 
           <Route path='*' element={<Error />} />
         </Routes>
+      </LoginContext.Provider>
     </div>
   );
 }

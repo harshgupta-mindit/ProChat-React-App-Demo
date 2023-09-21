@@ -1,7 +1,7 @@
-export const getFromLocal = ({key, doParse}) => {
+export const getFromLocal = (key, doParse) => {
     // key (string), doParse(Boolean)
     // Get Value from localStorage
-    const result = localStorage.getItem(key);
+    let result = localStorage.getItem(key);
     // Prop to check whether we need to parse the localvalue or not
     if(doParse){
         result = JSON.parse(result);
@@ -9,7 +9,7 @@ export const getFromLocal = ({key, doParse}) => {
     return result;
 }
 
-export const setInLocal = ({key, value, doStringify}) => {
+export const setInLocal = (key, value, doStringify= false) => {
     // key (string), doStringify(Boolean)
     // Check whether to convert to string for localstorage
     if(doStringify){
