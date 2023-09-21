@@ -9,8 +9,8 @@ const ProductCard = ({productBrand, productImage, productPrice, productModel }) 
                 <img src={productImage} alt="" className="card-img" />
 
                 <div className="card-info">
-                    <p>{productBrand}</p>
-                    <p>{productModel}</p>
+                    <p className='card-p1'>{productBrand}</p>
+                    <p className='card-p2'>{productModel}</p>
                     <p style={{fontWeight:"bold", fontSize:'20px'}}>Rs. {productPrice}</p>
                 </div>
 

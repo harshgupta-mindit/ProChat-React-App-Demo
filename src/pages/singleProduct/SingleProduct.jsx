@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import "./SingleProduct.css";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 
-import { DATA } from "../../Data"
+import { DATA } from "../../Data";
 
 const SingleProduct = () => {
 
@@ -27,7 +27,9 @@ const SingleProduct = () => {
                             {
                                 productData.images.length > 0 && productData.images.map((imageURL, key) => {
                                     return (
+                                        productImageCarouselCount == key ? 
                                         <img onClick={() => changeCarouselImage(key)} src={imageURL} alt="product_image" className="singleProduct-img-thumbnail" />
+                                        : <img style={{opacity:'.5'}} onClick={() => changeCarouselImage(key)} src={imageURL} alt="product_image" className="singleProduct-img-thumbnail" />
                                     )
                                 })
                             }

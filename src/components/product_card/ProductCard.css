@@ -18,6 +18,9 @@
 }
 .card-info{
     height: 40%;
+    overflow-y: scroll;
+}
+.card-p2{
 }
 .card-add-btn{
     width: 100%;
@@ -34,3 +37,9 @@
     color: #D80032;
     border: 1px solid #D80032;
 }
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.card-info::-webkit-scrollbar {
+    display: none;
+  }
