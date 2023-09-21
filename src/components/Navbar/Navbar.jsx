@@ -5,7 +5,7 @@ const NavbarMenu = () => {
     return (
         <>
             <nav className='nav'>
-                <Link style={{textDecoration:'none', color:"#fff"}} to='/'><h1 className='nav-h1'>E-Buy <sub className='nav-sub'></sub></h1></Link>
+                <Link style={{textDecoration:'none', color:"#fff"}} to='/'><h1 className='nav-h1'>E-Bay <sub className='nav-sub'></sub></h1></Link>
             
                 <div className="nav-ul">
                     <Link style={{textDecoration:'none'}} to="/products"><li className="nav-li">Products</li></Link>

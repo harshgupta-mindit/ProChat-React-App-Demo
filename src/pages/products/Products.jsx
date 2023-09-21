@@ -12,19 +12,22 @@ const Products = () => {
 
   return (
     <>
-      <h1>Product Page</h1>
+      <div className="products-main">
 
-      <div className="product-list">
+        <h1>Product Page</h1>
 
-        {
-          DATA.PRODUCT_DATA.map((data) => {
-            return (
-              <ProductCard productBrand={data.brand} productImage={data.thumbnail} productPrice={data.price} productModel={data.description} />
-            )
-          })
-        }
+        <div className="product-list">
+
+          {
+            DATA.PRODUCT_DATA.map((data) => {
+              return (
+                <ProductCard productBrand={data.brand} productImage={data.thumbnail} productPrice={data.price} productModel={data.description} />
+              )
+            })
+          }
+        </div>
+
       </div>
-
     </>
   )
 }

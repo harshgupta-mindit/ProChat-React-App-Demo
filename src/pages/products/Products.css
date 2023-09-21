@@ -1,6 +1,9 @@
+.products-main{
+    width: 90%;
+    margin: auto;
+}
 .product-list{
     display: flex;
     flex-wrap: wrap;
-
-    border: 2px solid red;
+    justify-content: space-between;
 }

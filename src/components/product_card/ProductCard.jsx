@@ -11,7 +11,7 @@ const ProductCard = ({productBrand, productImage, productPrice, productModel }) 
                 <div className="card-info">
                     <p>{productBrand}</p>
                     <p>{productModel}</p>
-                    <p>{productPrice}</p>
+                    <p style={{fontWeight:"bold", fontSize:'20px'}}>Rs. {productPrice}</p>
                 </div>
 
                 <button className='card-add-btn'>Add to Cart</button>
