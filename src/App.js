@@ -9,23 +9,30 @@ import Products from './pages/products/Products';
 
 import Home from './pages/home/Home';
 import SingleProduct from './pages/singleProduct/SingleProduct';
+import { useState } from 'react';
+
+import { createContext } from 'react';
 
 function App() {
 
+  const [userInfo, setUserInfo] = useState({});
+
+  const loginContext = createContext();
+
   return (
     <div className="App">
+      <loginContext.Provider value={{userInfo, setUserInfo}}>
+        <NavbarMenu />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/products/:productID' element={<SingleProduct />} />
 
-      <NavbarMenu />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/products' element={<Products />} />
-        <Route path='/products/:productID' element={<SingleProduct />} />
-
-        <Route path='*' element={<Error />} />
-      </Routes>
-
+          <Route path='*' element={<Error />} />
+        </Routes>
+      </loginContext.Provider>
     </div>
   );
 }
