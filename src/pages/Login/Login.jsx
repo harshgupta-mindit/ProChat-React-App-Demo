@@ -57,9 +57,6 @@ const Login = () => {
         theme: "colored",
       });
     }
-
-
-
   }
 
 

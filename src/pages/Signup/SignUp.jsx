@@ -3,47 +3,51 @@ import React from 'react';
 import "./SignUp.css";
 import { Link } from 'react-router-dom';
 import * as Yup from "yup";
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { signup } from '../../functions/authStatus';
 
 const SignUp = () => {
 
   const navigate = useNavigate();
 
   const signupUser = async (values) => {
-    await axios.post("http://localhost:8000/signup", {
-      ...values
-    }).then(() => {
-      toast.success('Sign Up Success 👍, Redirecting to Login...', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        });
+    
+      const result = await signup(values.name, values.email, values.password);
+      
+      if(result.message === "success"){
+        toast.success('Sign Up Success 👍, Redirecting to Login...', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+  
+          setTimeout(() => {
+            navigate('/login')
+          }, 2000);
+      }
+      else{
+        toast.error(`An Error occured 🤷‍♀️, ${result.err.response.data.shortMessage}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+      }
 
-        setTimeout(() => {
-          navigate('/login')
-        }, 4000);
+    
 
-    }).catch(() => {
-      toast.error('An Error occured 🤷‍♀️', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        });
-    })
   }
 
 

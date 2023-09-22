@@ -32,7 +32,7 @@ export const loginStatus = async (email, password) => {
 
 // INPUT ==> object {name, email, password}
 //OUTPUT ==> object {message, data}
-export const signup = async ({name, email, password}) => {
+export const signup = async (name, email, password) => {
     const result = axios.post("http://localhost:8000/signup", {
         name,
         email,
