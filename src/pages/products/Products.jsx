@@ -120,7 +120,7 @@ const Products = () => {
                 })
                 .map((data, key) => {
                   return (
-                    <Link onClick={scrollToTop} key={key} to={`/products/${key}`} style={{ textDecoration: "none", color: "#000" }}>
+                    <Link onClick={scrollToTop} key={key} to={`/products/${data.id}`} style={{ textDecoration: "none", color: "#000" }}>
                       <ProductCard productBrand={data.brand} productTitle={data.title} productImage={data.thumbnail} productPrice={data.price} productModel={data.description} />
                     </Link>
                   )

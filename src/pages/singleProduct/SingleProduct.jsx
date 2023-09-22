@@ -10,7 +10,7 @@ const SingleProduct = () => {
 
     const [productImageCarouselCount, setProductImageCarouselCount] = useState(0);
 
-    const productData = DATA.PRODUCT_DATA[productID]
+    const productData = DATA.PRODUCT_DATA[productID-1];
 
     const changeCarouselImage = (index) => {
         setProductImageCarouselCount(index);
@@ -62,7 +62,7 @@ const SingleProduct = () => {
                                         <div className="product-detail">
                                             <img className='otherProduct-img' src={data.thumbnail} alt="" />
                                             <p className='otherProduct-title'>{data.title}</p>
-                                            <p className='otherProduct-price'>Rs.{data.price}</p>
+                                            <p className='otherProduct-price'>Rs. {data.price}</p>
                                         </div>
                                     </Link>
                                 )

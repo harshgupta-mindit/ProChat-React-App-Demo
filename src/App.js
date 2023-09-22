@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import NavbarMenu from './components/Navbar/Navbar';
 import Error from './pages/Error/Error';
@@ -13,6 +13,8 @@ import SingleProduct from './pages/singleProduct/SingleProduct';
 import { createContext, useEffect, useState } from 'react';
 import { getFromLocal } from './functions/localStorage';
 import Orders from './pages/orders/Orders';
+
+import { redirect } from 'react-router-dom';
 
 export const LoginContext = createContext();
 
@@ -44,7 +46,8 @@ function App() {
           <Route path='products' element={<Products />} >
             <Route path=':productID' element={<SingleProduct />} />
           </Route>
-          <Route path='orders' element={<Orders />} />
+
+          <Route path='orders' element={userInfo !== null ? <Orders /> : <Navigate to='/login' />} />
 
           <Route path='*' element={<Error />} />
         </Routes>

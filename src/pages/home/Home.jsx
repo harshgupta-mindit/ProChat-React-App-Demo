@@ -4,13 +4,12 @@ import React from 'react'
 const Home = () => {
     return (
         <>
-
-            <p>Lorem, ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. A aperiam quasi dignissimos odio vero ipsa
-                distinctio voluptatem suscipit qui earum sunt ex consectetur magni dolor eius, quisquam placeat labore autem. consectetur adipisicing
-                elit. Minima sunt dolorum porro, saepe cumque architecto nostrum quibusdam autem dicta ducimus nobis recusandae atque reprehenderit
-                magni, eum ratione odit. Reiciendis, unde?
-            </p>
-        
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '85vh' }}>
+                <div style={{textAlign:'center'}}>
+                    <p style={{ fontSize: '30px', fontWeight: 'bold' }}>Under Development 🚧</p>
+                    <p>Some features are wokring fine, (Signip, Login, Filter, Search)</p>
+                </div>
+            </div>
         </>
     )
 }
