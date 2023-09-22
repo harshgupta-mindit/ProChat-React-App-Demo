@@ -1,9 +1,40 @@
 .products-main{
     width: 90%;
     margin: auto;
+    margin-top: 50px;
 }
 .product-list{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    margin-top: 30px;
+}
+.search-div{
+    width: 90%;
+    border: 2px solid #D80032;
+    border-radius: 20px;
+    margin: auto;
+}
+.product-search-form{
+    width: 100%;
+    display: flex;
+}
+.products-search-label{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.products-search-input{
+    width: 90%;
+    font-size: 20px;
+    border: none;
+    color: #D80032;
+    padding: 10px 0 10px 10px;
+    outline : none;
+}
+.products-input-search-img{
+    width: 30px;
 }

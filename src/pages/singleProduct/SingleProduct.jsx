@@ -16,6 +16,12 @@ const SingleProduct = () => {
         setProductImageCarouselCount(index);
     }
 
+
+    // SCROLL TO TOP
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    };
+
     return (
         <>
             <div className="singleProduct-main">
@@ -52,7 +58,7 @@ const SingleProduct = () => {
                         {
                             DATA.PRODUCT_DATA.length > 0 && DATA.PRODUCT_DATA.map((data, key) => {
                                 return (
-                                    <Link to={`/products/${key}`} style={{textDecoration:"none", color:'#000'}}>
+                                    <Link onClick={scrollToTop} to={`/products/${key}`} style={{ textDecoration: "none", color: '#000' }}>
                                         <div className="product-detail">
                                             <img className='otherProduct-img' src={data.thumbnail} alt="" />
                                             <p className='otherProduct-title'>{data.title}</p>

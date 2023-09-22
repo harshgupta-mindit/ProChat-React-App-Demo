@@ -21,26 +21,27 @@ function App() {
   const [userInfo, setUserInfo] = useState({});
 
   const checkUserAuth = (values) => {
-    if(values !== null){
+    if (values !== null) {
       setUserInfo(values);
     }
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     checkUserAuth(getFromLocal("userInfo", true));
-  },[])
+  }, [])
 
   return (
     <div className="App">
-      <LoginContext.Provider value={{loginStatus, setLoginStatus, userInfo, setUserInfo}}>
+      <LoginContext.Provider value={{ loginStatus, setLoginStatus, userInfo, setUserInfo }}>
 
         <NavbarMenu />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/products/:productID' element={<SingleProduct />} />
+          <Route path='login' element={<Login />} />
+          <Route path='signup' element={<SignUp />} />
+          <Route path='products' element={<Products />} >
+            <Route path=':productID' element={<SingleProduct />} />
+          </Route>
 
           <Route path='*' element={<Error />} />
         </Routes>
