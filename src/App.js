@@ -18,9 +18,10 @@ export const LoginContext = createContext();
 function App() {
 
   const [loginStatus, setLoginStatus] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState(null);
 
   const checkUserAuth = (values) => {
+    console.log("Inside effect", values)
     if (values !== null) {
       setUserInfo(values);
     }
