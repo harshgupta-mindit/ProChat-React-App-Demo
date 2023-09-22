@@ -45,6 +45,7 @@ function App() {
           <Route path='signup' element={<SignUp />} />
           <Route path='products' element={<Products />} >
             <Route path=':productID' element={<SingleProduct />} />
+            <Route path='*' element={<Error />} />
           </Route>
 
           <Route path='orders' element={userInfo !== null ? <Orders /> : <Navigate to='/login' />} />
