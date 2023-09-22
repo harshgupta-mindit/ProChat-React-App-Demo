@@ -26,11 +26,14 @@ const NavbarMenu = () => {
                 <Link style={{ textDecoration: 'none', color: "#fff" }} to='/'><h1 className='nav-h1'>E-Bay <sub className='nav-sub'></sub></h1></Link>
 
                 <div className="nav-ul">
+                    {
+                        userInfo !== null && (userInfo.name !== null &&  <li className='nav-logged'>Logged as {userInfo.name}</li>)
+                    }
                     <Link style={{ textDecoration: 'none' }} to="/products"><li className="nav-li">Products</li></Link>
 
                     {
                         userInfo !== null ? (userInfo.name !== null && <>
-                            <li className='nav-logged'>Logged as {userInfo.name}</li>
+                            <Link to='/orders' style={{ textDecoration: 'none' }} ><li className="nav-li" >Orders</li></Link>
                             <Link onClick={logoutUser} style={{ textDecoration: 'none' }} ><li className="nav-li" >Logout</li></Link>
                         </>
                         )

@@ -3,12 +3,49 @@
     margin: auto;
     margin-top: 50px;
 }
+.products-body{
+    width: 100%;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.products-filters{
+    width: 25%;
+    /* border: 1px solid red; */
+    padding: 30px 30px;
+}
+.products-filters-body{
+    display: flex;
+    flex-direction: column;
+}
+.products-filter-dropdown{
+    margin-bottom: 20px;
+}
+.products-filter-select{
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+}
+.products-filter-range{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.product-filter-radio{
+    display: flex;
+    flex-direction: column;
+}
+.product-filter-radio-p{
+    margin: 0;
+}
 .product-list{
+    /* border: 1px solid red; */
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 
-    margin-top: 30px;
 }
 .search-div{
     width: 90%;

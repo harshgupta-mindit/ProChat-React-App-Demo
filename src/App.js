@@ -12,6 +12,7 @@ import SingleProduct from './pages/singleProduct/SingleProduct';
 
 import { createContext, useEffect, useState } from 'react';
 import { getFromLocal } from './functions/localStorage';
+import Orders from './pages/orders/Orders';
 
 export const LoginContext = createContext();
 
@@ -43,6 +44,7 @@ function App() {
           <Route path='products' element={<Products />} >
             <Route path=':productID' element={<SingleProduct />} />
           </Route>
+          <Route path='orders' element={<Orders />} />
 
           <Route path='*' element={<Error />} />
         </Routes>

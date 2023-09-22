@@ -10,6 +10,7 @@
 .nav-ul{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     list-style-type: none;
 }
 .nav-h1{
@@ -27,13 +28,12 @@
     cursor: pointer;
 }
 .nav-logged{
-    padding: 10px 20px;
-    border: 1px double #fff;
+    background-color: #fff;
     color: #D80032;
+    padding: 5px 10px;
     border-radius: 10px;
     margin-left: 20px;
-    cursor: pointer;
-    background-color: #fff;
+    font-size: 15px;
 }
 .nav-li:hover{
     background-color: #fff;
