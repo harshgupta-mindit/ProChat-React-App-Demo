@@ -10,18 +10,29 @@ import Products from './pages/products/Products';
 import Home from './pages/home/Home';
 import SingleProduct from './pages/singleProduct/SingleProduct';
 
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import { getFromLocal } from './functions/localStorage';
 
 export const LoginContext = createContext();
 
 function App() {
 
-
   const [loginStatus, setLoginStatus] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
+
+  const checkUserAuth = (values) => {
+    if(values !== null){
+      setUserInfo(values);
+    }
+  }
+
+  useEffect(()=> {
+    checkUserAuth(getFromLocal("userInfo", true));
+  },[])
 
   return (
     <div className="App">
-      <LoginContext.Provider value={{loginStatus, setLoginStatus}}>
+      <LoginContext.Provider value={{loginStatus, setLoginStatus, userInfo, setUserInfo}}>
 
         <NavbarMenu />
         <Routes>

@@ -12,10 +12,17 @@ export const getFromLocal = (key, doParse) => {
 export const setInLocal = (key, value, doStringify= false) => {
     // key (string), doStringify(Boolean)
     // Check whether to convert to string for localstorage
+    console.log("Inside setInLocal func : ", doStringify)
     if(doStringify){
         localStorage.setItem(key, JSON.stringify(value))
     }
     else{
         localStorage.setItem(key, value)
     }
+}
+
+
+// INPUT ---> Key value of LocalStorage
+export const deleteFromLocal = (value) => {
+    localStorage.removeItem(value);
 }

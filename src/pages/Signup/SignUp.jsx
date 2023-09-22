@@ -71,7 +71,7 @@ const SignUp = () => {
             })}
 
             onSubmit={async (values) => {
-              console.log(values)
+              console.log(values);
               signupUser(values);
             }}
 

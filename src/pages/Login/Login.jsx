@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./Login.css"
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -12,19 +12,24 @@ import 'react-toastify/dist/ReactToastify.css';
 import { loginStatus } from '../../functions/authStatus';
 import { setInLocal } from '../../functions/localStorage';
 
+import { LoginContext } from '../../App'
+
 const Login = () => {
 
   const navigate = useNavigate();
+  const {setUserInfo} = useContext(LoginContext);
 
   const loginUserFunc = async (values) => {
 
     const result = await loginStatus(values.email, values.password);
 
-    if(result.message === "success") {  
+    if (result.message === "success") {
       setInLocal("auth-token", result.data.data.accessToken);
+      setInLocal("userInfo", result.data.data.user, true);
+      setUserInfo({...result.data.data.user});
       toast.success('Login Success 👍, Redirecting to Login...', {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -35,10 +40,11 @@ const Login = () => {
       console.log("logged in by database : ", result)
       setTimeout(() => {
         navigate('/products')
-      }, 4000);
+      }, 2000);
+      // navigate('/products')
 
     }
-    else{
+    else {
       console.log("An error occured : ", result.err)
       toast.error('An Error occured 🤷‍♀️', {
         position: "top-right",
